@@ -40,7 +40,7 @@ CREATE TABLE Servicios (
   Descripcion TEXT,
   Precio DECIMAL(19, 2) NOT NULL,
   DuracionEstimada TIME,
-  categoria tinyint
+  idcat tinyint
 );
 
 CREATE TABLE Citas (
@@ -78,6 +78,8 @@ ALTER TABLE Servicios_Citas
 ADD CONSTRAINT fk_servicio_id FOREIGN KEY (servicio_id) REFERENCES Servicios(servicios_id),
 ADD CONSTRAINT fk_cita_id FOREIGN KEY (cita_id) REFERENCES Citas(cita_id);
 
+alter table Servicios 
+add constraint fk_idcat foreign key (categoria) references categoria(idcat)
 
 
 
